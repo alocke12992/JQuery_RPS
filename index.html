@@ -6,9 +6,42 @@
   <title>Page Title</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" media="screen" href="css/main.css" />
-  
 </head>
 <body>
+  <div id="wrapper">
+    <div id="welcome">
+      <h1>Welcome to RPS</h1>
+      <button id="start">Start Game</button>
+    </div>
+    <div id="game">
+      <div id="nav">
+        <h1 id='wins'>Wins</h1>
+        <h1 id='lose'>Losses</h1>
+        <h1 id='games'>Games played</h1>
+      </div>
+      <div>
+        <ul>
+          <img src="images/hand-rock.png" id="rock" class="img choice" alt="hand rock">
+          <img src="images/hand.png" id="paper" class="img choice" alt="hand paper">
+          <img src="images/hand-scissors.png" id="scissors" class="img choice" alt="hand scissors">
+        </ul>
+      </div>
+      <div>
+        <h1>Your Choice</h1>
+          <p id='userChoice'></p>
+        <h1>Computer Choice</h1>
+          <p id='compChoice'></p>
+      </div>
+    </div>
+    <div id="outcome">
+      <h1 id="result">You Win</h1>
+      <button>Play Again</button>
+      <button>Reset Game</button>
+    </div>
+  </div>
+
+  <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
   <script src="js/main.js"></script>
 </body>
 </html>
