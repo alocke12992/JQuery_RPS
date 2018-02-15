@@ -11,7 +11,7 @@ $(document).ready( function(){
   var clear 
 
   $('.tooltipped').tooltip({ delay: 50 })
-  
+
 
   $('#start').click(function () {
     $('#start').removeClass('scale-in').addClass('scale-out')
@@ -35,6 +35,10 @@ $(document).ready( function(){
     $('#tie').text(ties)
     gamesPlayed = 0
     $('#games_played').text(gamesPlayed)
+    $('#userChoice').text("")
+    $('#compChoice').text("")
+    $('#result').text("")
+
   }
 
   function updateScore(result) {
@@ -57,12 +61,11 @@ $(document).ready( function(){
   }
 
   function displayResult(result, compChoice) {
-    debugger
-    if (result == 'Win') {
+    if (result === 'Win') {
       $('#userChoice').text("You chose " + user + ".")
       $('#compChoice').text("The computer chose " + computer + ".")
       $('#result').text("You Win")
-    } else if (result == 'Loss') {
+    } else if (result === 'Lose') {
       $('#userChoice').text("You chose " + user + ".")
       $('#compChoice').text("The computer chose " + computer + ".")
       $('#result').text("You lose.")
@@ -71,40 +74,41 @@ $(document).ready( function(){
       $('#compChoice').text("The computer chose " + computer + ".")
       $('#result').text("You tied.")
     }
+    Materialize.toast(("You " + result), 3000)
   }
 
   $('.choice').on('click', function() {
     user = this.id
-    Materialize.toast(('You chose ' + user + '.'), 4000)
+    Materialize.toast(('You chose ' + user + '.'), 1000)
     computer = rps[Math.floor(Math.random() * rps.length)]
-  
-    if (user == computer) {
-      updateScore('Tie', computer)
-    }
+    Materialize.toast(('The computer chose ' + computer + '.'), 2000)
+  if (user === computer) {
+    displayResult('Tied', computer)
+  }
     switch (user) {
       case 'Rock':
-        if (computer == 'Scissors') {
+        if (computer === 'Scissors') {
           displayResult('Win', computer)
           updateScore('Win')
-        } else if (computer == 'Paper') {
+        } else if (computer === 'Paper') {
           displayResult('Lose', computer)
           updateScore('Lose')
         }
         break
       case 'Scissors':
-        if (computer == 'Paper') {
+        if (computer === 'Paper') {
           displayResult('Win', computer)
           updateScore('Win')
-        } else if (computer == 'Rock') {
+        } else if (computer === 'Rock') {
           displayResult('Lose', computer)
           updateScore('Lose')
         }
         break
       case 'Paper':
-        if (computer == 'Rock') {
+        if (computer === 'Rock') {
           displayResult('Win', computer)
           updateScore('Win')
-        } else if (computer == 'Scissors') {
+        } else if (computer === 'Scissors') {
           displayResult('Lose', computer)
           updateScore('Lose')
         }
