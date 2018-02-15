@@ -2,49 +2,55 @@
 <html>
 <head>
   <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Page Title</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" media="screen" href="css/main.css" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>RPS</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="css/materialize.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
 <body>
-  <div id="wrapper">
-    <div id="welcome">
-      <h1>Welcome to RPS</h1>
-      <button id="start">Start Game</button>
-    </div>
-    <div id="game" class="hide">
-      <div id="nav">
-        <h1>Wins</h1>
-        <p id='win'>0</p>
-        <h1>Losses</h1>
-        <p id='lose'>0</p>
-        <h1>Ties</h1>
-        <p id='tie'>0</p>
-        <h1>Games played</h1>
-        <p id='games_played'>0</p>
-      </div>
-      <div>
-        <ul>
-          <img src="images/hand-rock.png" id="Rock" class="img choice" alt="hand rock">
-          <img src="images/hand.png" id="Paper" class="img choice" alt="hand paper">
-          <img src="images/hand-scissors.png" id="Scissors" class="img choice" alt="hand scissors">
-        </ul>
-      </div>
-    <div id="outcome">
-      <h1>Your Choice</h1>
-        <p id='userChoice'>Rock</p>
-      <h1>Computer Choice</h1>
-        <p id='compChoice'>Paper</p>
-      <h1>Outcome</h1>
-        <p id='result'>Lose</p>
-      <button id="reset">Reset Game</button>
-    </div>
-    </div>
-  </div>
 
-  <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-    crossorigin="anonymous"></script>
-  <script src="js/main.js"></script>
-</body>
+<!-- Welcome  -->
+  <div class="container">
+    <div>
+      <div id="welcome" class="center">
+        <h1 class="center-align">Welcome to RPS</h1>
+      </div>
+      <div class='row'><a id="start" class="col s2 offset-s5 waves-effect waves-light btn scale-transition scale-in">Start Game</a></div>
+      <div class='row'><a id="reset" class="col s2 offset-s5 waves-effect waves-light btn scale-transition scale-out">Reset</a></div>
+    </div>
+
+    
+  <!-- Game -->
+    <div id="game" class="scale-transition scale-out">
+      <div class='container section center'>
+        <a class="btn tooltipped col s3 " data-position="bottom" data-delay="50" data-tooltip="Wins" id="win">0</a>
+        <a class="btn tooltipped col s3" data-position="bottom" data-delay="50" data-tooltip="Losses" id='lose'>0</a>
+        <a class="btn tooltipped col s3" data-position="bottom" data-delay="50" data-tooltip="Tied Games" id='tie'>0</a>
+        <a class="btn tooltipped col s3" data-position="bottom" data-delay="50" data-tooltip="Total Games Played" id='games_played'>0</a>
+      </div>
+      <div class='container section'>
+          <div class='row section'>
+            <div class='col s4'><a onclick="Materialize.toast(('You chose ' + user + '.'), 4000)"><img src="images/hand-rock.png" id="Rock" class="responsive-img choice" alt="hand rock"></a></div>
+            <div class='col s4'><a onclick="Materialize.toast(('You chose ' + user + '.'), 4000)"><img src="images/hand.png" id="Paper" class="responsive-img choice" alt="hand paper"></a></div>
+            <div class='col s4'><a onclick="Materialize.toast(('You chose ' + user + '.'), 4000)"><img src="images/hand-scissors.png" id="Scissors" class="responsive-img choice" alt="hand scissors"></a></div>
+          </div>
+      </div>
+      <div id="outcome" class='row'>
+        <div class='col s6'>
+          <h5>Computer Choice</h5>
+          <p id='compChoice'>Paper</p>
+        </div>
+        <div class='col s6'>
+          <h5>Outcome</h5>
+          <p id='result'>Lose</p>
+        </div>
+      </div>
+    </div>
+
+
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="js/materialize.js"></script>
+    <script src="js/main.js"></script>
+  </body>
 </html>
