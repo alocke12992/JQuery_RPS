@@ -16,7 +16,7 @@ $(document).ready( function(){
   })
 
   $('#reset').on('click', function () {
-    
+    //Need to figure out how to clear the items here 
     toggle(false)
     
   }) 
@@ -35,10 +35,7 @@ $(document).ready( function(){
       // $('#lose').text(0)
       // $('#tie').text(0)
       // $('#games_played').text(0)
-      win = 0
-      lose = 0
-      ties = 0
-      gamesPlayed = 0
+  
       } 
     }
 
@@ -58,6 +55,7 @@ $(document).ready( function(){
     }
     gamesPlayed++
     $('#games_played').text(gamesPlayed)
+    
   }
 
   function displayResult(result, comChoice) {
