@@ -54,3 +54,7 @@ table {
 .img:hover {
   transform: 1
 }
+
+.hide {
+  display: none
+}

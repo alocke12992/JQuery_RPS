@@ -13,30 +13,33 @@
       <h1>Welcome to RPS</h1>
       <button id="start">Start Game</button>
     </div>
-    <div id="game">
+    <div id="game" class="hide">
       <div id="nav">
-        <h1 id='wins'>Wins</h1>
-        <h1 id='lose'>Losses</h1>
-        <h1 id='games'>Games played</h1>
+        <h1>Wins</h1>
+        <p id='win'>0</p>
+        <h1>Losses</h1>
+        <p id='lose'>0</p>
+        <h1>Ties</h1>
+        <p id='tie'>0</p>
+        <h1>Games played</h1>
+        <p id='games_played'>0</p>
       </div>
       <div>
         <ul>
-          <img src="images/hand-rock.png" id="rock" class="img choice" alt="hand rock">
-          <img src="images/hand.png" id="paper" class="img choice" alt="hand paper">
-          <img src="images/hand-scissors.png" id="scissors" class="img choice" alt="hand scissors">
+          <img src="images/hand-rock.png" id="Rock" class="img choice" alt="hand rock">
+          <img src="images/hand.png" id="Paper" class="img choice" alt="hand paper">
+          <img src="images/hand-scissors.png" id="Scissors" class="img choice" alt="hand scissors">
         </ul>
       </div>
-      <div>
-        <h1>Your Choice</h1>
-          <p id='userChoice'></p>
-        <h1>Computer Choice</h1>
-          <p id='compChoice'></p>
-      </div>
-    </div>
     <div id="outcome">
-      <h1 id="result">You Win</h1>
-      <button>Play Again</button>
-      <button>Reset Game</button>
+      <h1>Your Choice</h1>
+        <p id='userChoice'>Rock</p>
+      <h1>Computer Choice</h1>
+        <p id='compChoice'>Paper</p>
+      <h1>Outcome</h1>
+        <p id='result'>Lose</p>
+      <button id="reset">Reset Game</button>
+    </div>
     </div>
   </div>
 

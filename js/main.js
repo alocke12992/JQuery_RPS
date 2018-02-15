@@ -1,56 +1,117 @@
 
 $(document).ready( function(){
-  var user
-  var result
-  var rps = ['Rock', 'Paper', 'Scissors']
-  var computer
-  var showGame = false 
 
-  $('start').on('click', function (){
-    var game = $('#game')
-    var button = $(this)
-    if (showGame) {
-      game.hide()
-      showGame = true
-    } else 
+  var rps = ['Rock', 'Paper', 'Scissors']
+  var win = 0
+  var lose = 0
+  var ties = 0
+  var gamesPlayed = 0
+  var user 
+  var computer 
+
+  $('#start').on('click', function () {
+    startButton = $(this)
+    showGame = true
+    toggle(true)
   })
+
+  $('#reset').on('click', function () {
+    
+    toggle(false)
+    
+  }) 
+
+  function toggle(bool){
+    var showGame = bool 
+    var game = $('#game')
+    if (showGame === true) {
+        game.show()
+        startButton.hide() 
+
+      } else {
+        game.hide()
+        startButton.show()
+      // $('#win').text(0)
+      // $('#lose').text(0)
+      // $('#tie').text(0)
+      // $('#games_played').text(0)
+      win = 0
+      lose = 0
+      ties = 0
+      gamesPlayed = 0
+      } 
+    }
+
+  function updateScore(result) {
+    switch (result) {
+      case 'Win':
+        win++ 
+        $('#win').text(win)
+        break
+      case 'Lose':
+        lose++ 
+        $('#lose').text(lose)
+        break
+      default:
+        ties++
+        $('#tie').text(ties)
+    }
+    gamesPlayed++
+    $('#games_played').text(gamesPlayed)
+  }
+
+  function displayResult(result, comChoice) {
+    if (result == 'Win') {
+      $('#userChoice').text("You chose" + user + ".")
+      $('#compChoice').text("The computer chose " + computer + ".")
+      $('#result').text("You Win")
+    } else if (result == 'Loss') {
+      $('#userChoice').text("You chose" + user + ".")
+      $('#compChoice').text("The computer chose " + computer + ".")
+      $('#result').text("You lose.")
+    } else {
+      $('#userChoice').text("You chose" + user + ".")
+      $('#compChoice').text("The computer chose " + computer + ".")
+      $('#result').text("You tied.")
+    }
+  }
 
   $('.choice').on('click', function() {
     user = this.id
     computer = rps[Math.floor(Math.random() * rps.length)]
-    $('#userChoice').text(user)
-    $('#compChoice').text(computer)
-  })
-
-  function results(){
+    
     if (user === computer) {
-      $('#result').text('It was a tie')
-    } else {
-      switch (user) {
-        case 'rock':
-          if (computer === 'scissors') {
-            $('#result').text('You win')
-          } else {
-            $('#result').text('you lose')
-          }
-          break 
-        case 'paper':
-          if (computer === 'rock') {
-            $('#result').text('You win')
-          } else {
-            $('#result').text('you lose')
-          }
-          break 
-        case 'scissors':
-          if (computer === 'paper') {
-            $('#result').text('You win')
-          } else {
-            $('#result').text('you lose')
-          }
-          break 
+      updateScore('Tie')
+    }
+    switch (user) {
+      case 'Rock':
+        if (computer === 'Scissors') {
+          displayResult('Win', computer)
+          updateScore('Win')
+        } else if (computer === 'Paper') {
+          displayResult('Lose', computer)
+          updateScore('Lose')
+        }
+        break
+      case 'Scissors':
+        if (computer === 'Paper') {
+          displayResult('Win', computer)
+          updateScore('Win')
+        } else if (computer === 'Rock') {
+          displayResult('Lose', computer)
+          updateScore('Lose')
+        }
+        break
+      case 'Paper':
+        if (computer === 'Rock') {
+          displayResult('Win', computer)
+          updateScore('Win')
+        } else if (computer === 'Scissors') {
+          displayResult('Lose', computer)
+          updateScore('Lose')
         }
     }
-  }
+  })
 })
 
 
