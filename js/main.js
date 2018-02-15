@@ -51,10 +51,9 @@ $(document).ready( function(){
         lose++ 
         $('#lose').text(lose)
         break
-      default:
+      case 'Tie':
         ties++
         $('#tie').text(ties)
-      
     }
     gamesPlayed++
     $('#games_played').text(gamesPlayed)
@@ -64,26 +63,27 @@ $(document).ready( function(){
     if (result === 'Win') {
       $('#userChoice').text("You chose " + user + ".")
       $('#compChoice').text("The computer chose " + computer + ".")
-      $('#result').text("You Win")
+      $('#result').text("You win")
     } else if (result === 'Lose') {
       $('#userChoice').text("You chose " + user + ".")
       $('#compChoice').text("The computer chose " + computer + ".")
-      $('#result').text("You lose.")
+      $('#result').text("You lose")
     } else {
       $('#userChoice').text("You chose " + user + ".")
       $('#compChoice').text("The computer chose " + computer + ".")
-      $('#result').text("You tied.")
+      $('#result').text("You tied")
     }
-    Materialize.toast(("You " + result), 3000)
+    Materialize.toast(("You " + result), 4000)
   }
 
   $('.choice').on('click', function() {
     user = this.id
-    Materialize.toast(('You chose ' + user + '.'), 1000)
+    Materialize.toast(('You chose ' + user + '.'), 2000)
     computer = rps[Math.floor(Math.random() * rps.length)]
-    Materialize.toast(('The computer chose ' + computer + '.'), 2000)
+    Materialize.toast(('The computer chose ' + computer + '.'), 3000)
   if (user === computer) {
     displayResult('Tied', computer)
+    updateScore('Tie')
   }
     switch (user) {
       case 'Rock':
