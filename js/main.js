@@ -9,20 +9,27 @@ $(document).ready( function(){
   var user
   var computer
   var clear 
-
+  
   $('.tooltipped').tooltip({ delay: 50 })
 
-
+  
+// WHEN YOU HOVER, CHANGE TEXT IN data-tooltip=USER
   $('#start').click(function () {
     $('#start').removeClass('scale-in').addClass('scale-out')
     $('#reset').removeClass('scale-out').addClass('scale-in')
     $('#game').removeClass('scale-out').addClass('scale-in')
+    $('.welcome').animate({
+      'marginTop': '10vh'
+    }, 500)
   })
 
   $('#reset').click(function () {
     $('#reset').removeClass('scale-in').addClass('scale-out')
     $('#start').removeClass('scale-out').addClass('scale-in')
     $('#game').removeClass('scale-in').addClass('scale-out')
+    $('.welcome').animate({
+      'marginTop': '40vh'
+    }, 500)
     clear() 
   })
 
@@ -42,21 +49,31 @@ $(document).ready( function(){
   }
 
   function updateScore(result) {
+    var toolTipWin = $('#toolTipWin')
+    var toolTipLose = $('#toolTipLose')
+    var toolTipTie = $('#toolTipTie')
+    var toolTipGames = $('#toolTipGames')
     switch (result) {
       case 'Win':
         win++ 
         $('#win').text(win)
+        toolTipWin.attr('data-tooltip', win)
+        toolTipWin.tooltip()
         break
       case 'Lose':
         lose++ 
-        $('#lose').text(lose)
+        toolTipLose.attr('data-tooltip', lose)
+        toolTipLose.tooltip()
         break
       case 'Tie':
         ties++
-        $('#tie').text(ties)
+        toolTipTie.attr('data-tooltip', tie)
+        toolTipTie.tooltip()
     }
     gamesPlayed++
-    $('#games_played').text(gamesPlayed)
+    toolTipGames.attr('data-tooltip', gamesPlayed)
+    toolTipGames.tooltip()
+    
   }
 
   function displayResult(result, compChoice) {

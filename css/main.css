@@ -9,3 +9,15 @@ font-style: normal !important;
 font-variant: normal !important;
 text-transform: uppercase !important;
 }
+
+.welcome {
+  margin-top: 40vh;
+}
+
+.choice {
+  transition: all .5s ease-in-out;
+}
+
+.choice:hover {
+  transform: scale(1.2);
+}
